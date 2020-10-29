@@ -1,47 +1,38 @@
-  import template from "../template/listTemplate.hbs";
+import template from "../template/listTemplate.hbs";
 export default function fetchCountries(searchQuery) {
-  
-
     const input = document.querySelector('.input')
     const container = document.querySelector('.container')
     const ul = document.querySelector('.containerList')
 
   
-       
+    const debounce = require("lodash.debounce");
+    
     const countries = function (e) {
     
-            e.target.value.length >= 3 ? fetch(`https://restcountries.eu/rest/v2/name/${e.target.value}`)
+            e.target.value.length >= 2 ? fetch(`https://restcountries.eu/rest/v2/name/${e.target.value}`)
                 .then((data) => data.json())
                 .then((array) => {
                     // console.log(array.length);
                     if (array.length >= 0) {
                         ul.innerHTML = ""
                     }
-                    console.log(array);
                           array.forEach((el) => {
                         if (array.length >= 2 && array.length < 10) {
                             ul.innerHTML += `<li class=listItem>${el.name}</li>`
+                     
                             
-
-
-                         const listItem=document.querySelectorAll('.listItem')
+                            const listItem = document.querySelectorAll('.listItem')
                        
                             listItem.forEach((el) => {
-
-                                const replacement = function () {
+                              const replacement = function () {
                                input.value = el.textContent
                                ul.innerHTML = ''
                                 
-                                     fetch(`https://restcountries.eu/rest/v2/name/${el.textContent}`)
+                                    fetch(`https://restcountries.eu/rest/v2/name/${el.textContent}`)
                                         .then((data) => data.json())
-                                         .then((array) => {
-                                              ul.insertAdjacentHTML('beforeend', template(array))
-                                         })
-                                    
-                                    console.log(el.textContent);
-                                    console.log(array);
-                                    console.log(e.target.value);
-
+                                        .then((array) => {
+                                            ul.insertAdjacentHTML('beforeend', template(array))
+                                        });
                            }
                             el.addEventListener('click',replacement)
                            })
@@ -53,15 +44,12 @@ export default function fetchCountries(searchQuery) {
                     })
                 })
                 : ul.innerHTML = "";
-       
-      
-        };
+            };
 
-  
-        input.addEventListener('input', countries)
+          document.querySelector('input').addEventListener(
+  'input',
+    debounce((e) => {
+      countries(e)}, 500),
+  );
     
 }
-
-// if (array.length > 1) {
-//                                           ul.innerHTML += `<li>${el.name}</li>`
-//                     // 
