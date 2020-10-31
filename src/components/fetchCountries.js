@@ -1,6 +1,7 @@
 import template from "../template/listTemplate.hbs";
 import {alert, info} from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css'
 
 
 export default function fetchCountries(searchQuery) {
