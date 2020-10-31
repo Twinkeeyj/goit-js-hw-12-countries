@@ -1,11 +1,19 @@
 body {
   text-align: center;
   padding: 50px;
-  background-color: tomato;
+  background-image: url(./images/fonn.png);
+  background-repeat: no-repeat;
+}
+img {
+  margin-left: 20px;
 }
 ul {
   list-style: none;
   padding: 0%;
+}
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .list {
@@ -14,17 +22,63 @@ ul {
 }
 .capital {
   text-align: left;
+  font-size: 25px;
 }
 .listItem {
-  margin-right: 140px;
+  font-size: 25px;
 }
-
 .pnotify-container {
   top: 20px;
-  left: -250px;
+  left: -150px;
   display: block;
-  /* background-repeat: no-repeat; */
   background-size: cover;
   background-image: url(./images/stopp.png);
-  font-style: bold;
+  font-size: 20px;
+  box-shadow: 12px 12px 2px 1px rgb(253, 253, 253);
+  border: solid 3px #c9110b75;
+}
+.input {
+  height: 30px;
+  font-size: 20px;
+  outline: none;
+  border: solid 2px #767eeb;
+}
+
+.minions {
+  bottom: 20px;
+  left: 75px;
+  background-image: url(./images/minions_PNG70.png);
+  position: absolute;
+  width: 180px;
+  height: 150px;
+  background-size: cover;
+}
+.thoughts {
+  bottom: 145px;
+  left: 70px;
+  background-image: url(./images/1.png);
+  position: absolute;
+  width: 550px;
+  height: 390px;
+  background-size: cover;
+  padding-top: 80px;
+  padding-left: 10px;
+}
+.minions2 {
+  top: 125px;
+  right: 200px;
+  background-image: url(./images/minio2.png);
+  position: absolute;
+  width: 150px;
+  height: 170px;
+  background-size: cover;
+  padding-top: 30px;
+}
+.invisible {
+  display: none;
+}
+.text {
+  font-size: 19px;
+  font-weight: bold;
+  color: rgb(243, 95, 9);
 }
