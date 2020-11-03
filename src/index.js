@@ -27,35 +27,22 @@ import '@pnotify/core/dist/BrightTheme.css'
                   if (array.length >= 0) {
                     ul.innerHTML = ""
                   };
-                  array.forEach((el) => {
-                     if (array.length >= 2 && array.length < 10) {
+                  
+                   array.forEach((el) => {
+                  if (array.length >= 2 && array.length < 10) {
+                      
                          ul.innerHTML += `<li class=listItem>${el.name}</li>`
-                         
-
-                        //  const listItem = document.querySelectorAll('.listItem')
-  
-                    //    listItem.forEach((list) => {
-                    //     const replacement = function () {
-                    //      input.value = list.textContent
-                    //         ul.innerHTML = ''
-                            
-                    //      fetchCountries(e.target.value)
-                    //          .then((array) => {
-                    //              ul.insertAdjacentHTML('beforeend', template(array))
-                    //          });
-                    //     }
-                    //         list.addEventListener('click',replacement)
-                    //    })
-               
-                        } else if (array.length === 1) {
-                       ul.insertAdjacentHTML('beforeend', template(array));
                      
-
-                       
+                        
+                  }else    if (array.length === 1) {
+                    
+                       ul.insertAdjacentHTML('beforeend', template(array));
+                   
                      }
-                    })
+                   })
                 })
-                 .catch(a => {
+                   .catch(err => {
+                   console.log(1);
                    input.value = ""
                    ul.innerHTML = ""
                     info('     Enter another name!')
@@ -81,3 +68,5 @@ import '@pnotify/core/dist/BrightTheme.css'
     debounce((e) => {
       countries(e)}, 500),
   );
+
+  
