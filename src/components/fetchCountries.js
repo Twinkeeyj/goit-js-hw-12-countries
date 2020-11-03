@@ -43,15 +43,21 @@ export default function fetchCountries(searchQuery) {
                        })
                     
                         } else if (array.length === 1) {
-                            ul.insertAdjacentHTML('beforeend', template(array))
-                        }
+                       ul.insertAdjacentHTML('beforeend', template(array));
+                      //  localStorage.setItem('html', template(array));
+
+                       
+                     }
                     })
                 })
                  .catch(a => {
                    input.value = ""
                    ul.innerHTML = ""
                     info('     Enter another name!')
-                  })
+                 })
+        
+        
+        
       }else{ul.innerHTML = ""}
 
   };
